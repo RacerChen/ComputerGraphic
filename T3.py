@@ -36,7 +36,7 @@ def dot_product(vector1, vector2):
 # cross product
 # U（ux,uy,uz） V(vx,vy,vz)
 # U x V = (uy·vz – uz·vy)i + (ux·vz-uz·vx)j + (ux·vy-uy·vx)z
-def cross_product(vector1, vector2):
+def cross_product(vector2, vector1):
     return np.matrix([[vector1[1, 0] * vector2[2, 0] - vector1[2, 0] * vector2[1, 0]],
                [vector1[2, 0] * vector2[0, 0] - vector1[0, 0] * vector2[2, 0]],
                [vector1[0, 0] * vector2[1, 0] - vector1[1, 0] * vector2[0, 0]],
@@ -115,7 +115,7 @@ v = np.matrix([[crossProduct_AC_AB[0, 0] / LenCrossProduct_AC_AB],
 print('len v:')
 print(math.sqrt(dot_product(v, v)))
 
-n = cross_product(v, u)
+n = cross_product(u, v)
 print('len n:')
 print(math.sqrt(dot_product(n, n)))
 
@@ -140,7 +140,7 @@ ax.set_zlabel('Z')
 
 # Customize the view angle so it's easier to see that the scatter points lie
 # on the plane y=0
-ax.view_init(elev=10., azim=20)
+ax.view_init(elev=12., azim=18)
 
 #
 # Part II
@@ -149,6 +149,13 @@ uvn2xyzMatrix = np.matrix([[u[0, 0], u[1, 0], u[2, 0], 0],
                            [v[0, 0], v[1, 0], v[2, 0], 0],
                            [n[0, 0], n[1, 0], n[2, 0], 0],
                            [0, 0, 0, 1]])
+translateBackMatrix = np.matrix([[1, 0, 0, 1],
+                           [0, 1, 0, 1],
+                           [0, 0, 1, 1],
+                           [0, 0, 0, 1]])
+uvn2xyzMatrix = translateBackMatrix * uvn2xyzMatrix
+
+
 print('uvn2xyzMatrix:')
 print(uvn2xyzMatrix)
 
@@ -158,7 +165,7 @@ print(uvn2xyzMatrix)
 Puvn = np.matrix([[1],
                [1],
                [1],
-               [0]])
+               [1]])
 Pxyz = uvn2xyzMatrix * Puvn
 
 ax.scatter(Pxyz[0, 0], Pxyz[1, 0], Pxyz[2, 0], zdir='d', label='Pxyz')
