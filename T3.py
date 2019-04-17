@@ -40,7 +40,7 @@ def cross_product(vector2, vector1):
     return np.matrix([[vector1[1, 0] * vector2[2, 0] - vector1[2, 0] * vector2[1, 0]],
                [vector1[2, 0] * vector2[0, 0] - vector1[0, 0] * vector2[2, 0]],
                [vector1[0, 0] * vector2[1, 0] - vector1[1, 0] * vector2[0, 0]],
-               [1]
+               [0]
                ])
 
 # test cross product function
@@ -61,29 +61,29 @@ def cross_product(vector2, vector1):
 A = np.matrix([[1],
                 [1],
                 [1],
-                [0]
+                [1]
                 ])
 B = np.matrix([[2],
                 [2],
                 [1],
-                [0]
+                [1]
                 ])
 C = np.matrix([[2],
                 [1],
                 [2],
-                [0]
+                [1]
                 ])
 AB = np.matrix([[B[0, 0] - A[0, 0]],
                 [B[1, 0] - A[1, 0]],
                 [B[2, 0] - A[2, 0]],
-                [1]
+                [0]
                 ])
 LenAB = math.sqrt(dot_product(AB, AB))
 
 AC = np.matrix([[C[0, 0] - A[0, 0]],
                 [C[1, 0] - A[1, 0]],
                 [C[2, 0] - A[2, 0]],
-                [1]
+                [0]
                 ])
 LenAC = math.sqrt(dot_product(AC, AC))
 
@@ -95,7 +95,7 @@ ax.scatter(C[0, 0], C[1, 0], C[2, 0], zdir='c', label='C(2, 1, 2)')
 u = np.matrix([[AB[0, 0] / LenAB],
                [AB[1, 0] / LenAB],
                [AB[2, 0] / LenAB],
-               [1]
+               [0]
                ])
 print('len u:')
 print(math.sqrt(dot_product(u, u)))
@@ -110,7 +110,7 @@ LenCrossProduct_AC_AB = LenAC * LenAB * math.sqrt(1 - cos_AB_AC * cos_AB_AC)
 v = np.matrix([[crossProduct_AC_AB[0, 0] / LenCrossProduct_AC_AB],
                [crossProduct_AC_AB[1, 0] / LenCrossProduct_AC_AB],
                [crossProduct_AC_AB[2, 0] / LenCrossProduct_AC_AB],
-               [1]
+               [0]
                ])
 print('len v:')
 print(math.sqrt(dot_product(v, v)))
