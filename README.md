@@ -5,3 +5,6 @@ This WHU ComputerGraphic homework2's source code
 
 ## Advantage
 * use chart show the result
+
+## Author
+Jiajie Chen, Computer School of Wuhan University
