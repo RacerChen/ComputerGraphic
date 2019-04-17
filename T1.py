@@ -11,7 +11,7 @@ ax = fig.gca(projection='3d')
 P = np.matrix([[1],
               [1],
               [0],
-              [0]])
+              [1]])
 rotateYPos45Matrix = np.matrix([[1, 0, 0, 0],
                          [0, math.cos(math.pi / 4), -1 * math.sin(math.pi / 4), 0],
                          [0, math.sin(math.pi / 4), math.cos(math.pi / 4), 0],
@@ -59,16 +59,16 @@ plt.show()
 W = np.matrix([[1],
               [1],
               [0],
-              [0]])
+              [1]])
 
 WP = np.matrix([[P[0, 0] - W[0, 0]],
                 [P[1, 0] - W[1, 0]],
                 [P[1, 0] - W[1, 0]],
-              [1]])
+              [0]])
 WP1 = np.matrix([[P1[0, 0] - W[0, 0]],
                 [P1[1, 0] - W[1, 0]],
                 [P1[1, 0] - W[1, 0]],
-              [1]])
+              [0]])
 
 AbsWP = math.sqrt(WP[0, 0] * WP[0, 0] + WP[1, 0] * WP[1, 0] + WP[2, 0] * WP[2, 0])
 AbsWP1 = math.sqrt(WP1[0, 0] * WP1[0, 0] + WP1[1, 0] * WP1[1, 0] + WP1[2, 0] * WP1[2, 0])
