@@ -12,19 +12,22 @@ P = np.matrix([[1],
               [1],
               [0],
               [1]])
-rotateYPos45Matrix = np.matrix([[1, 0, 0, 0],
-                         [0, math.cos(math.pi / 4), -1 * math.sin(math.pi / 4), 0],
-                         [0, math.sin(math.pi / 4), math.cos(math.pi / 4), 0],
+
+rotateYPos45Matrix = np.matrix([
+                         [math.cos(math.pi / 4), 0, math.sin(math.pi / 4), 0],
+                         [0, 1, 0, 0],
+                         [-1 * math.sin(math.pi / 4), 0, math.cos(math.pi / 4), 0],
                          [0, 0, 0, 1]]
                          )
-rotateXPos30Matrix = np.matrix([[math.cos(math.pi / 6), -1 * math.sin(math.pi / 6), 0, 0],
-                         [math.sin(math.pi / 6), math.cos(math.pi / 6), 0, 0],
-                         [0, 0, 1, 0],
+rotateXPos30Matrix = np.matrix([[1, 0, 0, 0],
+                         [0, math.cos(math.pi / 6), -1 * math.sin(math.pi / 6), 0],
+                         [0, math.sin(math.pi / 6), math.cos(math.pi / 6), 0],
                          [0, 0, 0, 1]]
                          )
-rotateYNeg45Matrix = np.matrix([[1, 0, 0, 0],
-                         [0, math.cos(math.pi * -1 / 4), -1 * math.sin(math.pi * -1 / 4), 0],
-                         [0, math.sin(math.pi * -1 / 4), math.cos(math.pi * -1 / 4), 0],
+rotateYNeg45Matrix = np.matrix([
+                         [math.cos(math.pi * -1 / 4), 0, math.sin(math.pi * -1 / 4), 0],
+                         [0, 1, 0, 0],
+                         [-1 * math.sin(math.pi * -1 / 4), 0, math.cos(math.pi * -1 / 4), 0],
                          [0, 0, 0, 1]]
                          )
 P1 = rotateYNeg45Matrix * rotateXPos30Matrix * rotateYPos45Matrix * P
