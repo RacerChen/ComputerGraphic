@@ -97,4 +97,3 @@ center_Y_P1P11 = (P1[1, 0] + P11[1, 0]) / 2
 difP1P11 = math.fabs(center_Y_P1P11 - (3 * center_X_P1P11 - 1) / 5)
 if math.fabs(DotProduct_AB_P1P11) < 0.00000000001 and difP1P11 < 0.00000000001:
     print('Right1')
-    
